@@ -1,0 +1,57 @@
+# Environment
+.env
+*.env
+!.env.example
+
+# Vector database
+vector_db/
+
+# Archive directory
+OLD_BAK/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Docker
+.dockerignore
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reference files
+reference/1.0.1.zip

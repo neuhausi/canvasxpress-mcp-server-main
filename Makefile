@@ -5,7 +5,7 @@ IMAGE_NAME = canvasxpress-mcp-server:latest
 
 # Python virtual environment (requires Python 3.10+, FastMCP requirement)
 # Change PYTHON_BIN if your system has a different path
-PYTHON_BIN = python3.12
+PYTHON_BIN = python3
 VENV = ./venv
 PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip
