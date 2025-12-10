@@ -1,0 +1,22 @@
+# Lightweight dependencies (cloud embeddings only - no PyTorch)
+# Use this if you're using Gemini or OpenAI for embeddings instead of local BGE-M3
+#
+# Install with: pip install -r requirements-light.txt
+#
+# Then set in .env:
+#   EMBEDDING_PROVIDER=gemini    (or openai)
+#   LLM_PROVIDER=gemini          (or openai)
+
+# Core MCP server
+fastmcp>=2.0.0
+openai>=1.50.0
+pymilvus[milvus-lite]>=2.5.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Google Gemini support
+google-generativeai>=0.8.0
+
+# MCP HTTP client dependencies
+mcp>=1.0.0
+httpx-sse>=0.4.0
