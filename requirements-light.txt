@@ -1,11 +1,12 @@
-# Lightweight dependencies (cloud embeddings only - no PyTorch)
-# Use this if you're using Gemini or OpenAI for embeddings instead of local BGE-M3
+# Lightweight dependencies (cloud or ONNX embeddings - no PyTorch)
+# Use this if you're NOT using local BGE-M3 embeddings
 #
 # Install with: pip install -r requirements-light.txt
 #
 # Then set in .env:
-#   EMBEDDING_PROVIDER=gemini    (or openai)
-#   LLM_PROVIDER=gemini          (or openai)
+#   EMBEDDING_PROVIDER=onnx      (lightweight local, recommended)
+#   EMBEDDING_PROVIDER=gemini    (cloud API)
+#   EMBEDDING_PROVIDER=openai    (cloud API)
 
 # Core MCP server
 fastmcp>=2.0.0
@@ -20,3 +21,9 @@ google-generativeai>=0.8.0
 # MCP HTTP client dependencies
 mcp>=1.0.0
 httpx-sse>=0.4.0
+
+# ONNX embedding support (lightweight local embeddings)
+# Only needed if EMBEDDING_PROVIDER=onnx
+sentence-transformers>=2.2.0
+onnxruntime>=1.16.0
+optimum[onnxruntime]>=1.14.0

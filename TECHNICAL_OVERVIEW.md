@@ -49,7 +49,7 @@ See `.env.example` for full configuration options.
 ├── data/
 │   ├── few_shot_examples.json  # 132 examples (input to vector DB)
 │   ├── prompt_template.md      # LLM prompt template
-│   └── schema.txt              # CanvasXpress config schema
+│   └── schema.md               # CanvasXpress config schema
 ├── vector_db/                  # Created by `make init` or `make init-local`
 │   └── canvasxpress_mcp.db     # Milvus database
 ├── venv/                       # Created by `make venv` (local dev only)
@@ -162,7 +162,8 @@ On error:
   ...
 ]
 ```
-- 132 examples total (66 charts × 2 descriptions each)
+- **Default**: 66 examples (original JOSS publication set)
+- **Expanded**: `few_shot_examples_full.json` - 3,366 examples with ~13K descriptions (see README for switching)
 - `source`: "human" = human-written, "gpt4" = GPT-4 generated description
 
 ### `data/prompt_template.md`
@@ -172,7 +173,7 @@ Template with placeholders:
 - `{schema_info}` - CanvasXpress schema
 - `{few_shot_examples}` - Retrieved examples
 
-### `data/schema.txt`
+### `data/schema.md`
 CanvasXpress configuration schema documentation (properties, types, valid values).
 
 ---
@@ -252,7 +253,7 @@ The template uses Python format strings: `{canvasxpress_config_english}`, `{head
 
 ### Add New Chart Types
 1. Add examples to `data/few_shot_examples.json` (see above)
-2. Update `data/schema.txt` with new config properties/values
+2. Update `data/schema.md` with new config properties/values
 3. Rebuild vector DB: `make init`
 
 ### Configure Providers

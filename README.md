@@ -173,21 +173,45 @@ The server supports multiple LLM and embedding providers. Configure in `.env`:
 
 ### Embedding Providers
 
-| Provider | `EMBEDDING_PROVIDER` | Dimension | Notes |
-|----------|---------------------|-----------|-------|
-| BGE-M3 (local) | `local` | 1024 | **Recommended** - proven 93% accuracy, requires ~2GB download |
-| Azure OpenAI | `openai` | 1536 | Uses `text-embedding-3-small` |
-| Google Gemini | `gemini` | 768 | Uses `text-embedding-004` |
+| Provider | `EMBEDDING_PROVIDER` | Dimension | RAM | Notes |
+|----------|---------------------|-----------|-----|-------|
+| BGE-M3 (local) | `local` | 1024 | ~3GB | **Highest accuracy** - proven 93%, requires PyTorch (~2GB download) |
+| ONNX (local) | `onnx` | 384-768* | ~1GB | **Lightweight local** - smaller models, ~1GB vs ~3-4GB for BGE-M3 |
+| Azure OpenAI | `openai` | 1536 | ~200MB | Uses `text-embedding-3-small` (cloud API) |
+| Google Gemini | `gemini` | 768 | ~200MB | Uses `text-embedding-004` (cloud API) |
+
+#### ONNX Model Options
+
+Set `ONNX_EMBEDDING_MODEL` to use different models:
+
+| Model | Dimension | Size | Speed | Best For |
+|-------|-----------|------|-------|----------|
+| `all-MiniLM-L6-v2` | 384 | ~22MB | ⚡⚡⚡ | **Default** - fastest, good quality |
+| `all-MiniLM-L12-v2` | 384 | ~33MB | ⚡⚡ | Better quality than L6 |
+| `multi-qa-MiniLM-L6-cos-v1` | 384 | ~22MB | ⚡⚡⚡ | Optimized for Q&A |
+| `all-mpnet-base-v2` | 768 | ~420MB | ⚡ | **Best quality** |
+| `BAAI/bge-small-en-v1.5` | 384 | ~33MB | ⚡⚡⚡ | BGE family, lightweight |
+| `BAAI/bge-base-en-v1.5` | 768 | ~110MB | ⚡⚡ | BGE family, better quality |
+| `nomic-ai/nomic-embed-text-v1.5` | 768 | ~100MB | ⚡⚡ | **Long context** (8192 tokens) |
 
 ### Example Configurations
 
-**Azure OpenAI + Local BGE-M3** (default, recommended for BMS):
+**Azure OpenAI + Local BGE-M3** (highest accuracy, requires ~8GB RAM):
 ```bash
 LLM_PROVIDER=openai
 AZURE_OPENAI_KEY=your_key
 LLM_MODEL=gpt-4o-global
 LLM_ENVIRONMENT=nonprod
 EMBEDDING_PROVIDER=local
+```
+
+**Gemini + ONNX** (lightweight local embeddings, ~500MB RAM) ⭐ Recommended for small servers:
+```bash
+LLM_PROVIDER=gemini
+GOOGLE_API_KEY=your_key
+GEMINI_MODEL=gemini-2.0-flash-exp
+EMBEDDING_PROVIDER=onnx
+ONNX_EMBEDDING_MODEL=all-MiniLM-L6-v2
 ```
 
 **Google Gemini + Local BGE-M3** (best accuracy with Gemini):
@@ -643,7 +667,7 @@ See `examples_usage.py` and `PYTHON_USAGE.md` for detailed usage patterns.
 canvasxpress-mcp-server/
 ├── data/                       # Few-shot examples and schema
 │   ├── few_shot_examples.json  # 132 examples (66 configs × 2 descriptions)
-│   ├── schema.txt              # CanvasXpress config schema
+│   ├── schema.md               # CanvasXpress config schema
 │   └── prompt_template.md      # LLM prompt template
 ├── src/                        # Source code
 │   ├── canvasxpress_generator.py  # Core RAG pipeline + provider classes
@@ -709,7 +733,36 @@ Based on peer-reviewed research (Smith & Neuhaus, 2024):
 - Handles 30+ chart types
 - Automatic failover across Azure regions
 
-## 🐛 Troubleshooting
+## � Data Files
+
+The `data/` directory contains the files used for RAG and prompt generation:
+
+| File | Description |
+|------|-------------|
+| `few_shot_examples.json` | **Default** - 66 examples (original JOSS publication set) |
+| `few_shot_examples_full.json` | **Expanded** - 3,366 examples with alternative wordings (~13K total descriptions) |
+| `schema.md` | CanvasXpress configuration schema (parameters, types, options) |
+| `prompt_template.md` | Original prompt template (v1) |
+| `prompt_template_v2.md` | Enhanced prompt template with rules (v2, default) |
+| `canvasxpress_rules.md` | CanvasXpress configuration rules (axis, graph types, validation) |
+
+**Switching Few-Shot Files:**
+
+To use the expanded examples, create a symlink:
+```bash
+cd data/
+mv few_shot_examples.json few_shot_examples_small.json  # Backup original
+ln -s few_shot_examples_full.json few_shot_examples.json
+```
+
+Then reinitialize the vector database:
+```bash
+make init  # or make init-local for venv
+```
+
+> **Note:** The expanded file is ~5MB vs ~40KB for the default. It provides better coverage but takes longer to embed on first run.
+
+## �🐛 Troubleshooting
 
 ### Server won't start
 

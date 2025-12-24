@@ -9,7 +9,7 @@ This document outlines enhancements from the AWS Bedrock CanvasXpress Agent (`sm
 | Aspect | MCP Server (Current) | Bedrock Agent |
 |--------|---------------------|---------------|
 | **Few-shot examples** | 132 | ~13,460 |
-| **Knowledge docs** | `schema.txt` + `prompt_template.md` | 10 specialized modules (~150KB) |
+| **Knowledge docs** | `schema.md` + `prompt_template.md` | 10 specialized modules (~150KB) |
 | **Decision guidance** | None | Full decision tree |
 | **Rules** | Basic in prompt | 52+ comprehensive rules |
 | **Metadata per example** | Minimal | Rich (chart_type, use_case, complexity) |

@@ -21,7 +21,7 @@ The CanvasXpress MCP server exposes a **Model Context Protocol (MCP)** interface
 - 🌐 **Network Accessible**: Connect from any machine on the network
 - 🔐 **Session-based**: Each client gets a unique session ID
 - 📡 **SSE Transport**: Server-Sent Events for real-time responses
-- 🎨 **132 Examples**: RAG system with 66 chart types (132 total examples)
+- 🎨 **66+ Examples**: RAG system with 66 chart types (expandable to 3,366 examples)
 - 🤖 **AI-Powered**: BMS Azure OpenAI (gpt-4o-global) with 93% accuracy
 
 ---

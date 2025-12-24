@@ -46,6 +46,10 @@ embedding_provider = os.environ.get('EMBEDDING_PROVIDER', 'local')
 if embedding_provider == 'local':
     print("\n⏳ Loading BGE-M3 model and embedding examples...")
     print("   (This may take 3-5 minutes on first run)\n")
+elif embedding_provider == 'onnx':
+    onnx_model = os.environ.get('ONNX_EMBEDDING_MODEL', 'all-MiniLM-L6-v2')
+    print(f"\n⏳ Loading ONNX model: {onnx_model}")
+    print("   (Lightweight local embeddings, no heavy PyTorch)\n")
 elif embedding_provider == 'gemini':
     print("\n⏳ Using Gemini API for embeddings...")
     print("   (Requires GOOGLE_API_KEY in .env)\n")
@@ -54,7 +58,7 @@ elif embedding_provider == 'openai':
     print("   (Requires AZURE_OPENAI_KEY in .env)\n")
 else:
     print(f"\n⚠️  Unknown embedding provider: {embedding_provider}")
-    print("   Valid options: local, gemini, openai\n")
+    print("   Valid options: local, onnx, gemini, openai\n")
 
 generator = CanvasXpressGenerator(
     data_dir=data_dir,

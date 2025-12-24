@@ -73,7 +73,7 @@ head -n 50 /app/data/few_shot_examples.json | python -m json.tool
 python -c "import json; data = json.load(open('/app/data/few_shot_examples.json')); types = {}; [types.update({d['type']: types.get(d['type'], 0) + 1}) for d in data]; print('\n'.join(f'{k}: {v}' for k, v in sorted(types.items(), key=lambda x: -x[1])))"
 
 # Check schema
-head -n 20 /app/data/schema.txt
+head -n 20 /app/data/schema.md
 ```
 
 ### 5. Inspect Vector Database

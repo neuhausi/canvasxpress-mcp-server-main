@@ -1,7 +1,6 @@
 [
   {
-    "id": 0,
-    "type": "Area",
+    "id": 1,
     "description": "Area graph of hwy with title Simple Area Graph and no legend. Orient the graph vertically.",
     "config": {
       "title": "Simple Area Graph",
@@ -13,45 +12,10 @@
       "showLegend": false
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 0
-  },
-  {
-    "id": 1,
-    "type": "Area",
-    "description": "The visualization is titled \"Simple Area Graph\". It is an Area type graph with a vertical orientation. The x-axis displays the \"hwy\" data. The legend is not shown in this graph.",
-    "config": {
-      "title": "Simple Area Graph",
-      "graphType": "Area",
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "showLegend": false
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 0
+    "type": "Area"
   },
   {
     "id": 2,
-    "type": "Area",
-    "description": "Overlapping area graph of cty and hwy. Orient the graph vertically.",
-    "config": {
-      "graphType": "Area",
-      "xAxis": [
-        "cty",
-        "hwy"
-      ],
-      "graphOrientation": "vertical"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 1
-  },
-  {
-    "id": 3,
-    "type": "Area",
     "description": "Create an Area graph with a vertical orientation. The x-axis displays the \"cty\" and \"hwy\" data.",
     "config": {
       "graphType": "Area",
@@ -62,29 +26,10 @@
       "graphOrientation": "vertical"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 1
+    "type": "Area"
   },
   {
-    "id": 4,
-    "type": "Area",
-    "description": "Stacked area graph of hwy and cty. Orient the graph vertically.",
-    "config": {
-      "graphType": "Area",
-      "areaType": "stacked",
-      "xAxis": [
-        "hwy",
-        "cty"
-      ],
-      "graphOrientation": "vertical"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 2
-  },
-  {
-    "id": 5,
-    "type": "Area",
+    "id": 3,
     "description": "Create an area graph with a stacked area type. The graph is oriented vertically. The x-axis displays the 'hwy' and 'cty' data.",
     "config": {
       "graphType": "Area",
@@ -96,29 +41,10 @@
       "graphOrientation": "vertical"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 2
+    "type": "Area"
   },
   {
-    "id": 6,
-    "type": "Area",
-    "description": "Percentage stacked area graph of hwy and cty. Orient the graph vertically.",
-    "config": {
-      "graphType": "Area",
-      "areaType": "percent",
-      "xAxis": [
-        "hwy",
-        "cty"
-      ],
-      "graphOrientation": "vertical"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 3
-  },
-  {
-    "id": 7,
-    "type": "Area",
+    "id": 4,
     "description": "Create an area graph with a vertical orientation. The area type is set to 'percent', meaning the areas in the graph represent percentages. The x-axis of the graph displays the 'hwy' and 'cty' data.",
     "config": {
       "graphType": "Area",
@@ -130,33 +56,10 @@
       "graphOrientation": "vertical"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 3
+    "type": "Area"
   },
   {
-    "id": 8,
-    "type": "AreaLine",
-    "description": "Area graph of hwy with a line graph of displ showing the secondary axis. Label the primary axis as hwy and the secondary axis as displ. Orient the graph vertically.",
-    "config": {
-      "graphType": "AreaLine",
-      "xAxis": [
-        "hwy"
-      ],
-      "xAxis2": [
-        "displ"
-      ],
-      "graphOrientation": "vertical",
-      "xAxis2Show": true,
-      "xAxisTitle": "hwy",
-      "xAxis2Title": "displ"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 4
-  },
-  {
-    "id": 9,
-    "type": "AreaLine",
+    "id": 5,
     "description": "Create an AreaLine graph with a vertical orientation. The x-axis displays the \"hwy\" data, and there is a second x-axis that displays the \"displ\" data. The second x-axis is visible. The title for the first x-axis is \"hwy\", and the title for the second x-axis is \"displ\".",
     "config": {
       "graphType": "AreaLine",
@@ -172,31 +75,10 @@
       "xAxis2Title": "displ"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 4
+    "type": "AreaLine"
   },
   {
-    "id": 10,
-    "type": "Bar",
-    "description": "Bar graph of hwy grouped by class. Rotate the sample text at 45 degrees. Set the graph orientation to vertical.",
-    "config": {
-      "graphType": "Bar",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "smpTextRotate": 45
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 5
-  },
-  {
-    "id": 11,
-    "type": "Bar",
+    "id": 6,
     "description": "Create a bar graph with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" variable. The labels for the samples are rotated at 45 degrees.",
     "config": {
       "graphType": "Bar",
@@ -210,32 +92,10 @@
       "smpTextRotate": 45
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 5
+    "type": "Bar"
   },
   {
-    "id": 12,
-    "type": "Bar",
-    "description": "Count data grouped by class. Hide the legend and set the title to Count of class. Align the title to the center. Rotate the sample text at 45 degrees.",
-    "config": {
-      "graphType": "Bar",
-      "groupingFactors": [
-        "class"
-      ],
-      "graphOrientation": "vertical",
-      "smpTextRotate": 45,
-      "summaryType": "count",
-      "showLegend": false,
-      "title": "Count of class",
-      "titleAlign": "center"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 6
-  },
-  {
-    "id": 13,
-    "type": "Bar",
+    "id": 7,
     "description": "Create a vertical bar graph titled \"Count of class\", aligned in the center. The data is grouped by the \"class\" category. The sample text is rotated at 45 degrees. The summary type for the data when grouping is \"count\". The legend is not displayed in this graph.",
     "config": {
       "graphType": "Bar",
@@ -250,12 +110,10 @@
       "titleAlign": "center"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 6
+    "type": "Bar"
   },
   {
-    "id": 14,
-    "type": "Bar",
+    "id": 8,
     "description": "Bar graph of hwy grouped and colored by drv. Draw a red line at 20 labeled left as Cutoff. Set the graph orientation to horizontal. Set maximum value of x-axis to 30.",
     "config": {
       "colorBy": "drv",
@@ -280,69 +138,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 7
+    "type": "Bar"
   },
   {
-    "id": 15,
-    "type": "Bar",
-    "description": "Create a horizontal bar graph. The data is grouped by the \"drv\" field and the color of the bars is determined by the \"drv\" field. The x-axis displays the \"hwy\" field. The text for the samples is not rotated. The maximum value for the data on the x-axis is set to 30. There is a decoration line on the graph that is aligned to the left, colored red (rgb(255,0,0)), labeled as \"Cutoff\", and has a value of 20.",
-    "config": {
-      "colorBy": "drv",
-      "decorations": {
-        "line": [
-          {
-            "align": "left",
-            "color": "rgb(255,0,0)",
-            "label": "Cutoff",
-            "value": 20
-          }
-        ]
-      },
-      "graphOrientation": "horizontal",
-      "graphType": "Bar",
-      "groupingFactors": [
-        "drv"
-      ],
-      "setMaxX": 30,
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 7
-  },
-  {
-    "id": 16,
-    "type": "BarLine",
-    "description": "Draw a Bar graph of cty and hwy in the primary axis and a line graph of displ and cyl in the secondary axis. Group data by class. Put the legend at the bottom in 4 columns. Show the secondary axis. Set maximum value of x-axis to 30. Orient the graph vertically.",
-    "config": {
-      "graphType": "BarLine",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "cty",
-        "hwy"
-      ],
-      "xAxis2": [
-        "displ",
-        "cyl"
-      ],
-      "graphOrientation": "vertical",
-      "legendPosition": "bottom",
-      "legendColumns": 4,
-      "xAxis2Show": true,
-      "setMaxX": 30
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 8
-  },
-  {
-    "id": 17,
-    "type": "BarLine",
+    "id": 9,
     "description": "Create a combination of a bar and line graph (BarLine). The data is grouped by the \"class\" category. The primary x-axis displays the \"cty\" and \"hwy\" variables, while the secondary x-axis displays the \"displ\" and \"cyl\" variables. The graph is oriented vertically. The legend is positioned at the bottom of the graph and is organized into 4 columns. The secondary x-axis is set to be visible. The maximum value for data on the x-axis is set to 30.",
     "config": {
       "graphType": "BarLine",
@@ -364,31 +163,10 @@
       "setMaxX": 30
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 8
+    "type": "BarLine"
   },
   {
-    "id": 18,
-    "type": "Boxplot",
-    "description": "Boxplot of hwy by class. Rotate the sample text at 45 degrees. Set the graph orientation to vertical.",
-    "config": {
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "smpTextRotate": 45
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 9
-  },
-  {
-    "id": 19,
-    "type": "Boxplot",
+    "id": 10,
     "description": "Create a Boxplot graph with a vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" data. The text for the samples is rotated at 45 degrees.",
     "config": {
       "graphType": "Boxplot",
@@ -402,34 +180,10 @@
       "smpTextRotate": 45
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 9
+    "type": "Boxplot"
   },
   {
-    "id": 20,
-    "type": "Boxplot",
-    "description": "Boxplot of hwy and cty by class. Set the graph orientation to horizontal and show the original data binned. Hide the whiskers.",
-    "config": {
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "hwy",
-        "cty"
-      ],
-      "graphOrientation": "horizontal",
-      "showBoxplotOriginalData": true,
-      "binned": true,
-      "boxplotWhiskersType": "none"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 10
-  },
-  {
-    "id": 21,
-    "type": "Boxplot",
+    "id": 11,
     "description": "Create a Boxplot with a horizontal orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" and \"cty\" variables. The original data points in the boxplot are shown and the data points are binned. The boxplot does not have any whiskers.",
     "config": {
       "graphType": "Boxplot",
@@ -446,12 +200,10 @@
       "boxplotWhiskersType": "none"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 10
+    "type": "Boxplot"
   },
   {
-    "id": 22,
-    "type": "Boxplot",
+    "id": 12,
     "description": "Show notched boxplot of hwy by class using single whiskers. Split the samples by class. Rotate the sample text at 45 degrees. Set the graph orientation to vertical.",
     "config": {
       "graphType": "Boxplot",
@@ -468,57 +220,10 @@
       "smpTextRotate": 45
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 11
+    "type": "Boxplot"
   },
   {
-    "id": 23,
-    "type": "Boxplot",
-    "description": "Create a Boxplot with a vertical orientation. The boxplots are notched and the whiskers type is single. The data is grouped by the \"class\" column. The samples are split by the \"class\" column. The x-axis displays the \"hwy\" column. The sample text is rotated at 45 degrees.",
-    "config": {
-      "graphType": "Boxplot",
-      "boxplotNotched": true,
-      "boxplotWhiskersType": "single",
-      "groupingFactors": [
-        "class"
-      ],
-      "splitSamplesBy": "class",
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "smpTextRotate": 45
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 11
-  },
-  {
-    "id": 24,
-    "type": "Boxplot",
-    "description": "Boxplot of hwy grouped by drv and class. Color the boxplot by drv and connect the boxplot. Set the graph orientation to horizontal. Hide the primary axis and show the secondary axis.",
-    "config": {
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "drv",
-        "class"
-      ],
-      "colorBy": "drv",
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "horizontal",
-      "boxplotConnect": true,
-      "xAxisShow": false,
-      "xAxis2Show": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 12
-  },
-  {
-    "id": 25,
-    "type": "Boxplot",
+    "id": 13,
     "description": "Create a Boxplot graph with a horizontal orientation. The data is grouped by the 'drv' and 'class' columns. The color of the variables is determined by the 'drv' column. The 'hwy' column is displayed on the X axis. The data in the boxplots are connected. The X axis on the bottom is hidden, while the X axis on the top is shown.",
     "config": {
       "graphType": "Boxplot",
@@ -536,34 +241,10 @@
       "xAxis2Show": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 12
+    "type": "Boxplot"
   },
   {
-    "id": 26,
-    "type": "Boxplot",
-    "description": "Range Boxplot of cty grouped by drv. Set the graph orientation to horizontal. Hide the legend and set the title Range Boxplot of cty grouped by drv in bold.",
-    "config": {
-      "graphType": "Boxplot",
-      "boxplotType": "range",
-      "groupingFactors": [
-        "drv"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "graphOrientation": "horizontal",
-      "showLegend": false,
-      "title": "Range Boxplot of cty grouped by drv",
-      "titleFontStyle": "bold"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 13
-  },
-  {
-    "id": 27,
-    "type": "Boxplot",
+    "id": 14,
     "description": "Create a horizontal range boxplot. The graph type is \"Boxplot\" and the boxplot type is \"range\". The data is grouped by the \"drv\" factor. The x-axis displays the \"cty\" variable. The legend is not shown in this visualization. The title of the graph is \"Range Boxplot of cty grouped by drv\" and it is displayed in bold font style.",
     "config": {
       "graphType": "Boxplot",
@@ -580,12 +261,10 @@
       "titleFontStyle": "bold"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 13
+    "type": "Boxplot"
   },
   {
-    "id": 28,
-    "type": "Circular",
+    "id": 15,
     "description": "Make a hierarchical bubble plot of hwy by class, cyl and drv color by class",
     "config": {
       "circularType": "bubble",
@@ -601,52 +280,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 14
+    "type": "Circular"
   },
   {
-    "id": 29,
-    "type": "Circular",
-    "description": "Create a circular graph of the bubble subtype. The hierarchy of the graph is built based on the \"class\", \"cyl\", and \"drv\" columns. The x-axis of the graph is represented by the \"hwy\" column. The variables in the graph are colored by the \"class\" column.",
-    "config": {
-      "circularType": "bubble",
-      "colorBy": "class",
-      "graphType": "Circular",
-      "hierarchy": [
-        "class",
-        "cyl",
-        "drv"
-      ],
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 14
-  },
-  {
-    "id": 30,
-    "type": "Contour",
-    "description": "Filled Contour plot of cty and hwy",
-    "config": {
-      "graphType": "Scatter2D",
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ],
-      "isContour": true,
-      "contourFilled": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 15
-  },
-  {
-    "id": 31,
-    "type": "Contour",
+    "id": 16,
     "description": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The plot includes a contour, which is filled with color.",
     "config": {
       "graphType": "Scatter2D",
@@ -660,35 +297,10 @@
       "contourFilled": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 15
+    "type": "Contour"
   },
   {
-    "id": 32,
-    "type": "Contour",
-    "description": "Contour plot of cyl and dspl. Show the data points. Set the minimum value of x-axis to 2.5 and maximum value of x-axis to 10. Set the minimum value of y-axis to 0 and maximum value of y-axis to 7.5.",
-    "config": {
-      "graphType": "Scatter2D",
-      "xAxis": [
-        "cyl"
-      ],
-      "yAxis": [
-        "displ"
-      ],
-      "isContour": true,
-      "showContourDataPoints": true,
-      "setMinX": 2.5,
-      "setMaxX": 10,
-      "setMinY": 0,
-      "setMaxY": 7.5
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 16
-  },
-  {
-    "id": 33,
-    "type": "Contour",
+    "id": 17,
     "description": "Create a 2D scatter plot. The x-axis displays the 'cyl' variable and the y-axis displays the 'displ' variable. The contour is shown in the plot and the data points in the contour are also visible. The minimum and maximum values for the x-axis are set to 2.5 and 10 respectively, while the minimum and maximum values for the y-axis are set to 0 and 7.5 respectively.",
     "config": {
       "graphType": "Scatter2D",
@@ -706,30 +318,10 @@
       "setMaxY": 7.5
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 16
+    "type": "Contour"
   },
   {
-    "id": 34,
-    "type": "Density",
-    "description": "Density plot of hwy. Do not show the histogram bars.",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy"
-      ],
-      "hideHistogram": true,
-      "showHistogramDensity": true,
-      "showFilledHistogramDensity": true,
-      "showHistogram": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 17
-  },
-  {
-    "id": 35,
-    "type": "Density",
+    "id": 18,
     "description": "Create a Scatter2D graph. The data to be displayed on the Y axis is \"hwy\". The histogram bars are hidden in this configuration. However, the density kernel in histograms is shown, and it is filled. The histogram is created with all data.",
     "config": {
       "graphType": "Scatter2D",
@@ -742,32 +334,10 @@
       "showHistogram": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 17
+    "type": "Density"
   },
   {
-    "id": 36,
-    "type": "Density",
-    "description": "Density plot of hwy and cty. Show the median line. Do not show the histogram bars.",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "hideHistogram": true,
-      "showHistogramDensity": true,
-      "showFilledHistogramDensity": true,
-      "showHistogram": true,
-      "showHistogramMedian": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 18
-  },
-  {
-    "id": 37,
-    "type": "Density",
+    "id": 19,
     "description": "Create a 2D scatter plot. The variables displayed on the Y-axis are 'hwy' and 'cty'. The histogram bars are hidden in this configuration. However, the density kernel in the histograms is displayed, and it is filled. The histogram is created with all data, and the median of the histogram is also shown.",
     "config": {
       "graphType": "Scatter2D",
@@ -782,31 +352,10 @@
       "showHistogramMedian": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 18
+    "type": "Density"
   },
   {
-    "id": 38,
-    "type": "Density",
-    "description": "Density plot with histogram of hwy and cty.",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "hideHistogram": false,
-      "showHistogramDensity": true,
-      "showFilledHistogramDensity": true,
-      "showHistogram": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 19
-  },
-  {
-    "id": 39,
-    "type": "Density",
+    "id": 20,
     "description": "Create a 2D scatter plot. The variables displayed on the Y-axis are \"hwy\" and \"cty\". The histogram bars are not hidden. The density kernel in histograms is shown. The filled histogram density is also shown. The histogram is created with all data.",
     "config": {
       "graphType": "Scatter2D",
@@ -820,12 +369,10 @@
       "showHistogram": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 19
+    "type": "Density"
   },
   {
-    "id": 40,
-    "type": "Density",
+    "id": 21,
     "description": "Show a scatter plot of hwy and cty with side density plots in the x and y axes. Show the median line.",
     "config": {
       "graphType": "Scatter2D",
@@ -842,54 +389,10 @@
       "yAxisHistogramShow": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 20
+    "type": "Density"
   },
   {
-    "id": 41,
-    "type": "Density",
-    "description": "Create a 2D scatter plot. The x-axis displays the \"hwy\" data, while the y-axis displays the \"cty\" data. Histograms are not hidden in this configuration. The density kernel in histograms is shown, as well as the filled histogram density. The histogram median is also displayed. Both the x-axis and y-axis show histograms.",
-    "config": {
-      "graphType": "Scatter2D",
-      "showFilledHistogramDensity": true,
-      "showHistogramDensity": true,
-      "showHistogramMedian": true,
-      "xAxis": [
-        "hwy"
-      ],
-      "xAxisHistogramShow": true,
-      "yAxis": [
-        "cty"
-      ],
-      "yAxisHistogramShow": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 20
-  },
-  {
-    "id": 42,
-    "type": "Donut",
-    "description": "Sunburst plot of hwy by a single hierarchy class. Set the border color of all objects to black. Hide the legend.",
-    "config": {
-      "circularType": "sunburst",
-      "graphType": "Circular",
-      "hierarchy": [
-        "class"
-      ],
-      "objectBorderColor": "black",
-      "showLegend": false,
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 21
-  },
-  {
-    "id": 43,
-    "type": "Donut",
+    "id": 22,
     "description": "Create a circular graph of the sunburst subtype. The hierarchy of the graph is based on the \"class\" column. The x-axis displays the \"hwy\" column. The legend is not shown in this graph. The border color of all objects in the graph is black.",
     "config": {
       "circularType": "sunburst",
@@ -904,34 +407,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 21
+    "type": "Donut"
   },
   {
-    "id": 44,
-    "type": "Sunburst",
-    "description": "Sunburst plot of hwy by class and cyl. Color by class. Set the border color of all objects to black. Hide the legend.",
-    "config": {
-      "circularType": "sunburst",
-      "colorBy": "class",
-      "graphType": "Circular",
-      "hierarchy": [
-        "class",
-        "cyl"
-      ],
-      "objectBorderColor": "black",
-      "showLegend": false,
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 22
-  },
-  {
-    "id": 45,
-    "type": "Sunburst",
+    "id": 23,
     "description": "Create a circular graph of the sunburst subtype. The color of the variables is determined by the \"class\" column. The hierarchy for the graph is built using the \"class\" and \"cyl\" columns. The x-axis displays the \"hwy\" column. The legend is not shown in this graph. The border color for all objects in the graph is black.",
     "config": {
       "circularType": "sunburst",
@@ -948,32 +427,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 22
+    "type": "Sunburst"
   },
   {
-    "id": 46,
-    "type": "Dotplot",
-    "description": "Dotplot of cty grouped by class with jitter data points. Set the graph orientation to vertical and rotate the sample labels by 45 degrees.",
-    "config": {
-      "graphType": "Dotplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "graphOrientation": "vertical",
-      "jitter": true,
-      "smpTextRotate": 45
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 23
-  },
-  {
-    "id": 47,
-    "type": "Dotplot",
+    "id": 24,
     "description": "Create a Dotplot graph with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"cty\" category. The data points in the plot are jittered for better visibility. The text labels for the samples are rotated at 45 degrees.",
     "config": {
       "graphType": "Dotplot",
@@ -988,33 +445,10 @@
       "smpTextRotate": 45
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 23
+    "type": "Dotplot"
   },
   {
-    "id": 48,
-    "type": "Dotplot",
-    "description": "Dotplot of cty grouped by class with binned data points and colored by drv. Set the sample labels rotated by 45 degrees in a vertical orientation.",
-    "config": {
-      "graphType": "Dotplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "graphOrientation": "vertical",
-      "binned": true,
-      "colorBy": "drv",
-      "smpTextRotate": 45
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 24
-  },
-  {
-    "id": 49,
-    "type": "Dotplot",
+    "id": 25,
     "description": "Create a Dotplot graph. The data is grouped by the \"class\" category. The x-axis displays the \"cty\" category. The graph is oriented vertically. The data points in the dotplot are binned. The variables are colored by the \"drv\" category. The sample labels are rotated by 45 degrees.",
     "config": {
       "graphType": "Dotplot",
@@ -1030,39 +464,10 @@
       "smpTextRotate": 45
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 24
+    "type": "Dotplot"
   },
   {
-    "id": 50,
-    "type": "DotLine",
-    "description": "Draw a dotplot of cty and hwy in the primary axis with jitter and a line graph of displ and cyl in the secondary axis. Group data by class. Put the legend at the top in 2 columns. Show the secondary axis and set the graph orientation to vertical.",
-    "config": {
-      "graphType": "DotLine",
-      "groupingFactors": [
-        "class"
-      ],
-      "jitter": true,
-      "xAxis": [
-        "cty",
-        "hwy"
-      ],
-      "xAxis2": [
-        "displ",
-        "cyl"
-      ],
-      "graphOrientation": "vertical",
-      "legendPosition": "top",
-      "legendColumns": 2,
-      "xAxis2Show": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 25
-  },
-  {
-    "id": 51,
-    "type": "DotLine",
+    "id": 26,
     "description": "Create a DotLine graph with vertical orientation. The data is grouped by the \"class\" column. The graph includes a jitter effect for the data points. The x-axis displays data from the \"cty\" and \"hwy\" columns, while a second x-axis, which is visible, displays data from the \"displ\" and \"cyl\" columns. The legend is positioned at the top of the graph and is organized into 2 columns.",
     "config": {
       "graphType": "DotLine",
@@ -1084,28 +489,10 @@
       "xAxis2Show": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 25
+    "type": "DotLine"
   },
   {
-    "id": 52,
-    "type": "Heatmap",
-    "description": "Heatmap of hwy and cty. Cluster the samples.",
-    "config": {
-      "graphType": "Heatmap",
-      "xAxis": [
-        "hwy",
-        "cty"
-      ],
-      "samplesClustered": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 26
-  },
-  {
-    "id": 53,
-    "type": "Heatmap",
+    "id": 27,
     "description": "Create a Heatmap. The x-axis of the graph displays the 'hwy' and 'cty' data. The samples in the data are clustered.",
     "config": {
       "graphType": "Heatmap",
@@ -1116,31 +503,10 @@
       "samplesClustered": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 26
+    "type": "Heatmap"
   },
   {
-    "id": 54,
-    "type": "Heatmap",
-    "description": "Heatmap of clustered data of hwy and cty. Overlay the class on the heatmap.",
-    "config": {
-      "graphType": "Heatmap",
-      "smpOverlays": [
-        "class"
-      ],
-      "xAxis": [
-        "hwy",
-        "cty"
-      ],
-      "samplesClustered": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 27
-  },
-  {
-    "id": 55,
-    "type": "Heatmap",
+    "id": 28,
     "description": "Create a Heatmap. The sample metadata to overlay in one dimensional plots is \"class\". The names of the samples, groups or variables to be displayed in the X axis are \"hwy\" and \"cty\". The samples are clustered.",
     "config": {
       "graphType": "Heatmap",
@@ -1154,30 +520,10 @@
       "samplesClustered": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 27
+    "type": "Heatmap"
   },
   {
-    "id": 56,
-    "type": "Hexplot-Binplot",
-    "description": "Bin data in a scatter plot with hwy and cty",
-    "config": {
-      "graphType": "Scatter2D",
-      "scatterType": "bin2d",
-      "xAxis": [
-        "hwy"
-      ],
-      "yAxis": [
-        "cty"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 28
-  },
-  {
-    "id": 57,
-    "type": "Hexplot-Binplot",
+    "id": 29,
     "description": "Create a 2D scatter plot with a bin2d scatter type. The x-axis displays the \"hwy\" data, and the y-axis displays the \"cty\" data.",
     "config": {
       "graphType": "Scatter2D",
@@ -1190,27 +536,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 28
+    "type": "Hexplot-Binplot"
   },
   {
-    "id": 58,
-    "type": "Histogram",
-    "description": "Histogram of hwy",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy"
-      ],
-      "showHistogram": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 29
-  },
-  {
-    "id": 59,
-    "type": "Histogram",
+    "id": 30,
     "description": "Create a 2D scatter plot. The variable displayed on the Y-axis is \"hwy\". Additionally, a histogram is shown for all data.",
     "config": {
       "graphType": "Scatter2D",
@@ -1220,29 +549,10 @@
       "showHistogram": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 29
+    "type": "Histogram"
   },
   {
-    "id": 60,
-    "type": "Histogram",
-    "description": "Histogram of hwy and cty. Stagger the histogram.",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "histogramType": "staggered",
-      "showHistogram": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 30
-  },
-  {
-    "id": 61,
-    "type": "Histogram",
+    "id": 31,
     "description": "Create a 2D scatter plot. The variables to be displayed on the Y axis are \"hwy\" and \"cty\". When multiple series are present, a staggered histogram is shown. The histogram is displayed with all data.",
     "config": {
       "graphType": "Scatter2D",
@@ -1254,29 +564,10 @@
       "showHistogram": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 30
+    "type": "Histogram"
   },
   {
-    "id": 62,
-    "type": "Histogram",
-    "description": "Dodge histogram of hwy and cty",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "histogramType": "dodged",
-      "showHistogram": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 31
-  },
-  {
-    "id": 63,
-    "type": "Histogram",
+    "id": 32,
     "description": "Create a 2D scatter plot. The variables displayed on the Y-axis are 'hwy' and 'cty'. The histogram type is dodged and the histogram is set to be displayed.",
     "config": {
       "graphType": "Scatter2D",
@@ -1288,29 +579,10 @@
       "showHistogram": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 31
+    "type": "Histogram"
   },
   {
-    "id": 64,
-    "type": "Histogram",
-    "description": "Stacked Histogram of hwy and cty. Stack the histogram.",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "histogramType": "stacked",
-      "showHistogram": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 32
-  },
-  {
-    "id": 65,
-    "type": "Histogram",
+    "id": 33,
     "description": "Create a 2D scatter plot. The Y-axis displays the \"hwy\" and \"cty\" data. When multiple series are present, a stacked histogram is shown. The histogram is displayed with all data.",
     "config": {
       "graphType": "Scatter2D",
@@ -1322,28 +594,10 @@
       "showHistogram": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 32
+    "type": "Histogram"
   },
   {
-    "id": 66,
-    "type": "Histogram",
-    "description": "Histogram of hwy by cyl. Color them by cyl.",
-    "config": {
-      "graphType": "Scatter2D",
-      "histogramType": "stacked",
-      "showHistogram": "cyl",
-      "yAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 33
-  },
-  {
-    "id": 67,
-    "type": "Histogram",
+    "id": 34,
     "description": "Create a 2D scatter plot. The data to be displayed on the Y-axis is \"hwy\". A histogram is shown using the \"cyl\" data. The histogram type is \"stacked\" when multiple series are present.",
     "config": {
       "graphType": "Scatter2D",
@@ -1354,28 +608,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 33
+    "type": "Histogram"
   },
   {
-    "id": 68,
-    "type": "Line",
-    "description": "Line graph of hwy and no legend. Set the graph orientation to vertical.",
-    "config": {
-      "graphType": "Line",
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "showLegend": false
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 34
-  },
-  {
-    "id": 69,
-    "type": "Line",
+    "id": 35,
     "description": "Create a line graph with a vertical orientation. The x-axis displays the \"hwy\" data. The legend is not shown in this graph.",
     "config": {
       "graphType": "Line",
@@ -1386,31 +622,10 @@
       "showLegend": false
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 34
+    "type": "Line"
   },
   {
-    "id": 70,
-    "type": "Line",
-    "description": "Line graph of hwy and cty grouped by class. Set the graph orientation to horizontal.",
-    "config": {
-      "graphType": "Line",
-      "xAxis": [
-        "hwy",
-        "cty"
-      ],
-      "groupingFactors": [
-        "class"
-      ],
-      "graphOrientation": "horizontal"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 35
-  },
-  {
-    "id": 71,
-    "type": "Line",
+    "id": 36,
     "description": "Create a Line graph with a horizontal orientation. The x-axis displays the 'hwy' and 'cty' data. The data is grouped by the 'class' category.",
     "config": {
       "graphType": "Line",
@@ -1424,34 +639,10 @@
       "graphOrientation": "horizontal"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 35
+    "type": "Line"
   },
   {
-    "id": 72,
-    "type": "Line",
-    "description": "Line graph of hwy and cty grouped by class show error bars as area using a spline. Set the title to Line Graph of hwy and cty grouped by class. Orient the graph vertically.",
-    "config": {
-      "graphOrientation": "vertical",
-      "graphType": "Line",
-      "groupingFactors": [
-        "class"
-      ],
-      "lineErrorType": "area",
-      "lineType": "spline",
-      "title": "Line Graph of hwy and cty grouped by class",
-      "xAxis": [
-        "hwy",
-        "cty"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 36
-  },
-  {
-    "id": 73,
-    "type": "Line",
+    "id": 37,
     "description": "Create a Line graph titled \"Line Graph of hwy and cty grouped by class\". The x-axis displays the \"hwy\" and \"cty\" data. The data is grouped by the \"class\" category. The line error type is set to \"area\" and the type of line used to join the points in the line graph is \"spline\". The graph is oriented vertically.",
     "config": {
       "graphOrientation": "vertical",
@@ -1468,30 +659,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 36
+    "type": "Line"
   },
   {
-    "id": 74,
-    "type": "QQ",
-    "description": "QQ plot of cty",
-    "config": {
-      "graphType": "Scatter2D",
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "cty"
-      ],
-      "scatterType": "qq"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 37
-  },
-  {
-    "id": 75,
-    "type": "QQ",
+    "id": 38,
     "description": "Create a 2D scatter plot. The x-axis displays the 'cty' data, and the y-axis also displays the 'cty' data. The type of scatter plot used is 'qq'.",
     "config": {
       "graphType": "Scatter2D",
@@ -1504,31 +675,10 @@
       "scatterType": "qq"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 37
+    "type": "QQ"
   },
   {
-    "id": 76,
-    "type": "QQ",
-    "description": "QQ plot of hwy colored by class",
-    "config": {
-      "graphType": "Scatter2D",
-      "colorBy": "class",
-      "xAxis": [
-        "hwy"
-      ],
-      "yAxis": [
-        "hwy"
-      ],
-      "scatterType": "qq"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 38
-  },
-  {
-    "id": 77,
-    "type": "QQ",
+    "id": 39,
     "description": "Create a 2D scatter plot. The variables are colored by the \"class\" attribute. The x-axis displays the \"hwy\" attribute, and the y-axis also displays the \"hwy\" attribute. The type of scatter plot used is \"qq\".",
     "config": {
       "graphType": "Scatter2D",
@@ -1542,30 +692,10 @@
       "scatterType": "qq"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 38
+    "type": "QQ"
   },
   {
-    "id": 78,
-    "type": "Quantile",
-    "description": "Quantile reregression of hwy and cty",
-    "config": {
-      "graphType": "Scatter2D",
-      "xAxis": [
-        "hwy"
-      ],
-      "yAxis": [
-        "cty"
-      ],
-      "showQuantileRegressionFit": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 39
-  },
-  {
-    "id": 79,
-    "type": "Quantile",
+    "id": 40,
     "description": "Create a 2D scatter plot. The x-axis displays the \"hwy\" data, while the y-axis displays the \"cty\" data. The Quantile Regression fit is shown in this scatter plot.",
     "config": {
       "graphType": "Scatter2D",
@@ -1578,12 +708,10 @@
       "showQuantileRegressionFit": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 39
+    "type": "Quantile"
   },
   {
-    "id": 80,
-    "type": "Meter",
+    "id": 41,
     "description": "Create a gauge meter graph of the average of hwy using drv as factor.",
     "config": {
       "graphType": "Meter",
@@ -1595,29 +723,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 40
+    "type": "Meter"
   },
   {
-    "id": 81,
-    "type": "Meter",
-    "description": "Create a Meter type graph. The meters are created based on the \"drv\" sample category. The meter type is a \"gauge\". The summary type for the meter is \"average\". The x-axis displays the \"hwy\" data.",
-    "config": {
-      "graphType": "Meter",
-      "meterGroup": "drv",
-      "meterSummaryType": "average",
-      "meterType": "gauge",
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 40
-  },
-  {
-    "id": 82,
-    "type": "Meter",
+    "id": 42,
     "description": "Create a digital meter graph of the sum of hwy using cyl as factor.",
     "config": {
       "graphType": "Meter",
@@ -1629,72 +738,20 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 41
+    "type": "Meter"
   },
   {
-    "id": 83,
-    "type": "Meter",
-    "description": "Create a Meter graph. The meters are created based on the \"cyl\" sample category. The summary type for the meter is \"sum\". The type of meter used is \"digital\". The x-axis displays the \"hwy\" data.",
-    "config": {
-      "graphType": "Meter",
-      "meterGroup": "cyl",
-      "meterSummaryType": "sum",
-      "meterType": "digital",
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 41
-  },
-  {
-    "id": 84,
-    "type": "Pie",
-    "description": "Pie chart of class",
-    "config": {
-      "graphType": "Pie",
-      "pieBy": "class"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 42
-  },
-  {
-    "id": 85,
-    "type": "Pie",
+    "id": 43,
     "description": "Create a Pie chart. The pie chart is divided based on the \"class\" column from the data.",
     "config": {
       "graphType": "Pie",
       "pieBy": "class"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 42
+    "type": "Pie"
   },
   {
-    "id": 86,
-    "type": "Radar",
-    "description": "Line graph in a radar plot of hwy and hide the sample names",
-    "config": {
-      "graphType": "Circular",
-      "circularType": "radar",
-      "ringGraphType": [
-        "line"
-      ],
-      "xAxis": [
-        "hwy"
-      ],
-      "showSampleNames": false
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 43
-  },
-  {
-    "id": 87,
-    "type": "Radar",
+    "id": 44,
     "description": "Create a circular graph with a radar subtype. The graph type for each ring in the circular plot is a line. The x-axis displays the 'hwy' column from the data. The sample names are not shown in this visualization.",
     "config": {
       "graphType": "Circular",
@@ -1708,31 +765,10 @@
       "showSampleNames": false
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 43
+    "type": "Radar"
   },
   {
-    "id": 88,
-    "type": "Radar",
-    "description": "Dot plot in a radar plot of cty and hide the sample names",
-    "config": {
-      "graphType": "Circular",
-      "circularType": "radar",
-      "ringGraphType": [
-        "dot"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "showSampleNames": false
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 44
-  },
-  {
-    "id": 89,
-    "type": "Radar",
+    "id": 45,
     "description": "Create a circular graph with a radar subtype. The graph type for each ring in the circular plot is a dot. The x-axis displays the \"cty\" column from the data. The sample names are not shown in this visualization.",
     "config": {
       "graphType": "Circular",
@@ -1746,30 +782,10 @@
       "showSampleNames": false
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 44
+    "type": "Radar"
   },
   {
-    "id": 90,
-    "type": "Ridgeline",
-    "description": "Ridgeline plot of hwy by class",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy"
-      ],
-      "ridgeBy": "class",
-      "hideHistogram": true,
-      "showHistogramDensity": true,
-      "showFilledHistogramDensity": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 45
-  },
-  {
-    "id": 91,
-    "type": "Ridgeline",
+    "id": 46,
     "description": "Create a Scatter2D graph. The variable to be displayed on the Y-axis is \"hwy\". The ridgelines in the Scatter2D plot are created based on the \"class\". The histogram bars are hidden in this configuration. However, the density kernel in the histograms is displayed, and it is filled.",
     "config": {
       "graphType": "Scatter2D",
@@ -1782,31 +798,10 @@
       "showFilledHistogramDensity": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 45
+    "type": "Ridgeline"
   },
   {
-    "id": 92,
-    "type": "Ridgeline",
-    "description": "Ridgeline plot of hwy and cty by class",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "ridgeBy": "class",
-      "hideHistogram": true,
-      "showHistogramDensity": true,
-      "showFilledHistogramDensity": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 46
-  },
-  {
-    "id": 93,
-    "type": "Ridgeline",
+    "id": 47,
     "description": "Create a Scatter2D type graph. The Y-axis of the graph displays the 'hwy' and 'cty' data. The ridgelines in the Scatter2D plot are created based on the 'class' data. The histogram bars in the graph are hidden. However, the density kernel in the histograms is displayed, and it is filled.",
     "config": {
       "graphType": "Scatter2D",
@@ -1820,32 +815,10 @@
       "showFilledHistogramDensity": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 46
+    "type": "Ridgeline"
   },
   {
-    "id": 94,
-    "type": "Ridgeline",
-    "description": "Ridgeline plot of hwy and cty by class and show the histogram quantiles.",
-    "config": {
-      "graphType": "Scatter2D",
-      "yAxis": [
-        "hwy",
-        "cty"
-      ],
-      "ridgeBy": "class",
-      "hideHistogram": true,
-      "showHistogramDensity": true,
-      "showFilledHistogramDensity": true,
-      "showHistogramQuantiles": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 47
-  },
-  {
-    "id": 95,
-    "type": "Ridgeline",
+    "id": 48,
     "description": "Create a Scatter2D graph. The variables displayed on the Y axis are \"hwy\" and \"cty\". The ridgelines in the Scatter2D plot are created based on the \"class\". The histogram bars are hidden in this configuration. The density kernel in the histograms is displayed. The filled histogram density is also shown. The quantile 0.25 and 0.75 in the density plots are visible.",
     "config": {
       "graphType": "Scatter2D",
@@ -1860,31 +833,10 @@
       "showHistogramQuantiles": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 47
+    "type": "Ridgeline"
   },
   {
-    "id": 96,
-    "type": "Ridgeline",
-    "description": "Ridgeline plot of hwy by class showing the original data.",
-    "config": {
-      "graphType": "Scatter2D",
-      "hideHistogram": true,
-      "ridgeBy": "class",
-      "showFilledHistogramDensity": true,
-      "showHistogramDataPoints": true,
-      "showHistogramDensity": true,
-      "yAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 48
-  },
-  {
-    "id": 97,
-    "type": "Ridgeline",
+    "id": 49,
     "description": "Create a Scatter2D graph. The data to be displayed on the Y axis is \"hwy\". The ridgelines in the Scatter2D plot are created by \"class\". The histogram bars are hidden. The density kernel in the histograms is shown. The filled histogram density is also shown. The original data points in the histograms are displayed.",
     "config": {
       "graphType": "Scatter2D",
@@ -1898,50 +850,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 48
+    "type": "Ridgeline"
   },
   {
-    "id": 98,
-    "type": "Scatter2D",
-    "description": "Scatter plot of cty and hwy colored by cyl and shaped by drv. Draw a red line at y=35 and a blue line at y=20 and a black line at x=20. Convert cyl to string.",
-    "config": {
-      "colorBy": "cyl",
-      "decorations": {
-        "line": [
-          {
-            "color": "rgba(255,0,0)",
-            "y": 35
-          },
-          {
-            "color": "rgba(0,0,255)",
-            "y": 20
-          },
-          {
-            "color": "rgba(0,0,0)",
-            "x": 20
-          }
-        ]
-      },
-      "graphType": "Scatter2D",
-      "shapeBy": "drv",
-      "stringVariableFactors": [
-        "cyl"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 49
-  },
-  {
-    "id": 99,
-    "type": "Scatter2D",
+    "id": 50,
     "description": "Create a 2D scatter plot. The x-axis displays the 'cty' data, while the y-axis displays the 'hwy' data. The 'cyl' data is treated as a string variable factor. The color of the data points is determined by the 'cyl' data, and the shape of the data points is determined by the 'drv' data. There are also line decorations in the plot: a red line at y=35, a blue line at y=20, and a black line at x=20.",
     "config": {
       "colorBy": "cyl",
@@ -1974,12 +886,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 49
+    "type": "Scatter2D"
   },
   {
-    "id": 100,
-    "type": "Scatter2D",
+    "id": 51,
     "description": "Show the correlation between cty and hwy in a scatter plot. Draw the regression fit.",
     "config": {
       "graphType": "Scatter2D",
@@ -1992,30 +902,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 50
+    "type": "Scatter2D"
   },
   {
-    "id": 101,
-    "type": "Scatter2D",
-    "description": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The regression fit is shown in this scatter plot.",
-    "config": {
-      "graphType": "Scatter2D",
-      "showRegressionFit": true,
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 50
-  },
-  {
-    "id": 102,
-    "type": "Scatter2D",
+    "id": 52,
     "description": "Create a 2D scatter plot of cty and displ. Color the regression fit and the data points by cyl. Treat cyl as a string variable factor.",
     "config": {
       "colorBy": "cyl",
@@ -2032,52 +922,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 51
+    "type": "Scatter2D"
   },
   {
-    "id": 103,
-    "type": "Scatter2D",
-    "description": "Create a 2D scatter plot. The x-axis displays the 'cty' data, while the y-axis displays the 'displ' data. The regression fit is shown for the 'cyl' data. The 'cyl' data is also treated as a string variable factor. The variables in the plot are colored by the 'cyl' data.",
-    "config": {
-      "colorBy": "cyl",
-      "graphType": "Scatter2D",
-      "showRegressionFit": "cyl",
-      "stringVariableFactors": [
-        "cyl"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "displ"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 51
-  },
-  {
-    "id": 104,
-    "type": "Scatter2D",
-    "description": "Fit hwy and cty with loess",
-    "config": {
-      "graphType": "Scatter2D",
-      "showLoessFit": true,
-      "xAxis": [
-        "hwy"
-      ],
-      "yAxis": [
-        "cty"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 52
-  },
-  {
-    "id": 105,
-    "type": "Scatter2D",
+    "id": 53,
     "description": "Create a Scatter2D graph. The x-axis displays the 'cty' data, while the y-axis displays the 'hwy' data. The loess fit is shown in this Scatter2D plot.",
     "config": {
       "graphType": "Scatter2D",
@@ -2090,36 +938,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 52
+    "type": "Scatter2D"
   },
   {
-    "id": 106,
-    "type": "Scatter3D",
-    "description": "3D Scatter plot of cty, hwy, and displ colored by cyl. Convert cyl to string.",
-    "config": {
-      "graphType": "Scatter3D",
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ],
-      "zAxis": [
-        "displ"
-      ],
-      "stringVariableFactors": [
-        "cyl"
-      ],
-      "colorBy": "cyl"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 53
-  },
-  {
-    "id": 107,
-    "type": "Scatter3D",
+    "id": 54,
     "description": "Create a 3D scatter plot. The x-axis displays the 'cty' variable, the y-axis displays the 'hwy' variable, and the z-axis displays the 'displ' variable. The 'cyl' variable is treated as a string variable factor. The color of the data points in the visualization is determined by the 'cyl' variable.",
     "config": {
       "graphType": "Scatter3D",
@@ -2138,36 +960,10 @@
       "colorBy": "cyl"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 53
+    "type": "Scatter3D"
   },
   {
-    "id": 108,
-    "type": "ScatterBubble2D",
-    "description": "Bubble Scatter plot of cty and hwy. Size the data by displ and color by cyl. Convert cyl to string.",
-    "config": {
-      "graphType": "ScatterBubble2D",
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ],
-      "zAxis": [
-        "displ"
-      ],
-      "stringVariableFactors": [
-        "cyl"
-      ],
-      "colorBy": "cyl"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 54
-  },
-  {
-    "id": 109,
-    "type": "ScatterBubble2D",
+    "id": 55,
     "description": "Create a ScatterBubble2D type graph. The x-axis displays the 'cty' data, the y-axis displays the 'hwy' data, and the z-axis displays the 'displ' data. The 'cyl' data is treated as a string variable factor. The color of the variables in the graph is determined by the 'cyl' data.",
     "config": {
       "graphType": "ScatterBubble2D",
@@ -2186,12 +982,10 @@
       "colorBy": "cyl"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 54
+    "type": "ScatterBubble2D"
   },
   {
-    "id": 110,
-    "type": "Stacked",
+    "id": 56,
     "description": "Create a stacked graph with a vertical orientation. The data is summarized by summing it up. The samples of each variable in the bar graphs are stacked by the \"drv\" annotation. The data is grouped by the \"class\" category. The sample labels are rotated by 45 degrees.",
     "config": {
       "graphOrientation": "vertical",
@@ -2204,52 +998,10 @@
       "summaryType": "sum"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 55
+    "type": "Stacked"
   },
   {
-    "id": 111,
-    "type": "Stacked",
-    "description": "Create a stacked graph with a vertical orientation. The data is summarized by summing it up. The samples of each variable in the bar graphs are stacked by the \"drv\" annotation. The data is grouped by the \"class\" category. The sample labels are rotated by 45 degrees.",
-    "config": {
-      "graphOrientation": "vertical",
-      "graphType": "Stacked",
-      "groupingFactors": [
-        "class"
-      ],
-      "smpTextRotate": 45,
-      "stackBy": "drv",
-      "summaryType": "sum"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 55
-  },
-  {
-    "id": 112,
-    "type": "Stacked",
-    "description": "Stacked bar of hwy, cty, displ, and cyl grouped by class. Set the graph orientation to horizontal",
-    "config": {
-      "graphType": "Stacked",
-      "summaryType": "sum",
-      "xAxis": [
-        "hwy",
-        "cty",
-        "displ",
-        "cyl"
-      ],
-      "groupingFactors": [
-        "class"
-      ],
-      "graphOrientation": "horizontal"
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 56
-  },
-  {
-    "id": 113,
-    "type": "Stacked",
+    "id": 57,
     "description": "Create a Stacked graph with a horizontal orientation. The data is summarized by summing it up. The x-axis displays the 'hwy', 'cty', 'displ', and 'cyl' variables. The data is grouped by the 'class' variable.",
     "config": {
       "graphType": "Stacked",
@@ -2266,38 +1018,10 @@
       "graphOrientation": "horizontal"
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 56
+    "type": "Stacked"
   },
   {
-    "id": 114,
-    "type": "StackedLine",
-    "description": "Draw a stacked graph of the sum of cty and hwy in the primary axis and a line graph of the sum of displ and cyl in the secondary axis. Group data by class. Set the maximum value of the  primary axis to 2500. Set the graph orientation to vertical. Show the secondary axis.",
-    "config": {
-      "graphOrientation": "vertical",
-      "graphType": "StackedLine",
-      "groupingFactors": [
-        "class"
-      ],
-      "setMaxX": 2500,
-      "summaryType": "sum",
-      "xAxis": [
-        "cty",
-        "hwy"
-      ],
-      "xAxis2": [
-        "displ",
-        "cyl"
-      ],
-      "xAxis2Show": true
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 57
-  },
-  {
-    "id": 115,
-    "type": "StackedLine",
+    "id": 58,
     "description": "Create a Stacked Line graph with a vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"cty\" and \"hwy\" categories, while the second x-axis, which is visible, displays the \"displ\" and \"cyl\" categories. The maximum value for data in the x-axis is set to 2500. The summary type for the data when grouping is set to \"sum\".",
     "config": {
       "graphOrientation": "vertical",
@@ -2318,33 +1042,10 @@
       "xAxis2Show": true
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 57
+    "type": "StackedLine"
   },
   {
-    "id": 116,
-    "type": "StackedPercent",
-    "description": "Stacked percent bar of the sum hwy, cty, displ, and cyl grouped by class.",
-    "config": {
-      "graphType": "StackedPercent",
-      "groupingFactors": [
-        "class"
-      ],
-      "summaryType": "sum",
-      "xAxis": [
-        "hwy",
-        "cty",
-        "displ",
-        "cyl"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 58
-  },
-  {
-    "id": 117,
-    "type": "StackedPercent",
+    "id": 59,
     "description": "Create a Stacked Percent graph. The summary type for the data when grouping is set to sum. The x-axis displays the 'hwy', 'cty', 'displ', and 'cyl' variables. The data is grouped by the 'class' factor.",
     "config": {
       "graphType": "StackedPercent",
@@ -2360,12 +1061,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 58
+    "type": "StackedPercent"
   },
   {
-    "id": 118,
-    "type": "Violin",
+    "id": 60,
     "description": "Create a Boxplot with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" data. The observed data points in the boxplots are shown. The variables are colored by the \"cyl\" category. The \"cyl\" sample factors are treated as strings. The violin plot in the boxplots is shown. The data points in the boxplots are jittered. The boxplots are not shown when the violin plot is shown. The sample labels are rotated by 45 degrees.",
     "config": {
       "colorBy": "cyl",
@@ -2387,62 +1086,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 59
+    "type": "Violin"
   },
   {
-    "id": 119,
-    "type": "Violin",
-    "description": "Create a Boxplot with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" data. The observed data points in the boxplots are shown. The variables are colored by the \"cyl\" category. The \"cyl\" sample factors are treated as strings. The violin plot in the boxplots is shown. The data points in the boxplots are jittered. The boxplots are not shown when the violin plot is shown. The sample labels are rotated by 45 degrees.",
-    "config": {
-      "colorBy": "cyl",
-      "graphOrientation": "vertical",
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "jitter": true,
-      "showBoxplotIfViolin": false,
-      "showBoxplotOriginalData": true,
-      "showViolinBoxplot": true,
-      "smpTextRotate": 45,
-      "stringSampleFactors": [
-        "cyl"
-      ],
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 59
-  },
-  {
-    "id": 120,
-    "type": "Violin",
-    "description": "Violin plot of hwy grouped by class. Set the graph orientation to horizontal. Do not trim the violin. Hide the legend. Set the title to Violin plot of hwy grouped by class. Hide the boxplot in the the violins.",
-    "config": {
-      "graphOrientation": "horizontal",
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "showBoxplotIfViolin": false,
-      "showLegend": false,
-      "showViolinBoxplot": true,
-      "title": "Violin plot of hwy grouped by class",
-      "violinTrim": false,
-      "xAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 60
-  },
-  {
-    "id": 121,
-    "type": "Violin",
+    "id": 61,
     "description": "Create a Boxplot with the title \"Violin plot of hwy grouped by class\". The data is grouped by the \"class\" column. The x-axis displays the \"hwy\" column. The graph is oriented horizontally. A violin plot is shown in the boxplots, but the boxplots themselves are not displayed when the violin plot is shown. The violin plots are not trimmed. The legend is not displayed.",
     "config": {
       "graphOrientation": "horizontal",
@@ -2460,34 +1107,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 60
+    "type": "Violin"
   },
   {
-    "id": 122,
-    "type": "Violin",
-    "description": "Violin plot of cty grouped by cyl with a boxplot. Set the graph orientation to vertical. Set the title to Violin plot of cty grouped by cyl. Rotate the sample text by 90 degrees.",
-    "config": {
-      "title": "Violin plot of cty grouped by cyl",
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "cyl"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "showViolinBoxplot": true,
-      "graphOrientation": "vertical",
-      "showBoxplotIfViolin": true,
-      "smpTextRotate": 90
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 61
-  },
-  {
-    "id": 123,
-    "type": "Violin",
+    "id": 62,
     "description": "Create a boxplot with the title \"Violin plot of cty grouped by cyl\". The data is grouped by the \"cyl\" column. The x-axis displays the \"cty\" column. The graph includes a violin plot and the orientation of the graph is vertical. If the violin plot is shown, the boxplot will also be displayed. The text for the samples is rotated 90 degrees.",
     "config": {
       "title": "Violin plot of cty grouped by cyl",
@@ -2504,34 +1127,10 @@
       "smpTextRotate": 90
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 61
+    "type": "Violin"
   },
   {
-    "id": 124,
-    "type": "NA",
-    "description": "Boxplot of hwy by class, faceted by cyl. Orient the graph vertically and rotate the sample text by 45 degrees.",
-    "config": {
-      "graphType": "Boxplot",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "smpTextRotate": 45,
-      "segregateSamplesBy": [
-        "cyl"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 62
-  },
-  {
-    "id": 125,
-    "type": "NA",
+    "id": 63,
     "description": "Create a Boxplot graph with a vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" variable. The labels for the samples are rotated at 45 degrees. The samples are segregated by the \"cyl\" category.",
     "config": {
       "graphType": "Boxplot",
@@ -2548,35 +1147,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 62
+    "type": "NA"
   },
   {
-    "id": 126,
-    "type": "Bar",
-    "description": "Vertical Bar graph of hwy grouped by class and faceted by cyl and drv with labels rotated at 45 degrees",
-    "config": {
-      "graphType": "Bar",
-      "groupingFactors": [
-        "class"
-      ],
-      "xAxis": [
-        "hwy"
-      ],
-      "graphOrientation": "vertical",
-      "smpTextRotate": 45,
-      "segregateSamplesBy": [
-        "cyl",
-        "drv"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 63
-  },
-  {
-    "id": 127,
-    "type": "Bar",
+    "id": 64,
     "description": "Create a bar graph with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" category. The labels for the samples are rotated at 45 degrees. The samples are segregated by the \"cyl\" and \"drv\" categories.",
     "config": {
       "graphType": "Bar",
@@ -2594,12 +1168,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 63
+    "type": "Bar"
   },
   {
-    "id": 128,
-    "type": "Scatter2D",
+    "id": 65,
     "description": "Create a 2D scatter plot. The x-axis displays the cty variable, while the y-axis displays the 'hwy' variable. Segregate the variables by cyl and drv.",
     "config": {
       "graphType": "Scatter2D",
@@ -2615,33 +1187,10 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 64
+    "type": "Scatter2D"
   },
   {
-    "id": 129,
-    "type": "Scatter2D",
-    "description": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The variables are segregated by 'cyl' and 'drv'.",
-    "config": {
-      "graphType": "Scatter2D",
-      "segregateVariablesBy": [
-        "cyl",
-        "drv"
-      ],
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 64
-  },
-  {
-    "id": 130,
-    "type": "Scatter2D",
+    "id": 66,
     "description": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The configuration also includes a DOE.",
     "config": {
       "asDOE": true,
@@ -2654,25 +1203,6 @@
       ]
     },
     "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "human",
-    "original_id": 65
-  },
-  {
-    "id": 131,
-    "type": "Scatter2D",
-    "description": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The configuration also includes a DOE object.",
-    "config": {
-      "asDOE": true,
-      "graphType": "Scatter2D",
-      "xAxis": [
-        "cty"
-      ],
-      "yAxis": [
-        "hwy"
-      ]
-    },
-    "headers": "Id,class,cty,cyl,drv,fl,manufacturer,model,trans,year,displ,hwy",
-    "source": "gpt4",
-    "original_id": 65
+    "type": "Scatter2D"
   }
 ]

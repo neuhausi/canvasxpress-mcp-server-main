@@ -76,7 +76,7 @@ generator = CanvasXpressGenerator(
 ```
 
 **What it does:**
-- Loads 132 few-shot examples
+- Loads few-shot examples (66 default, or 3,366 with expanded file)
 - Initializes embedding model (BGE-M3 local, or cloud API)
 - Connects to Milvus vector database
 - Sets up LLM client (Azure OpenAI or Gemini)

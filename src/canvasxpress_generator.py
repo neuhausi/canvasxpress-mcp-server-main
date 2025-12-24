@@ -6,7 +6,7 @@ using RAG (Retrieval Augmented Generation) with few-shot examples.
 
 Supports multiple LLM and embedding providers:
 - LLM: Azure OpenAI (BMS Proxy) or Google Gemini
-- Embeddings: Local BGE-M3, Azure OpenAI, or Google Gemini
+- Embeddings: Local BGE-M3, Local ONNX (lightweight), Azure OpenAI, or Google Gemini
 
 Based on the JOSS-published methodology (Smith & Neuhaus, 2025):
 - 93% exact match accuracy
@@ -18,6 +18,7 @@ Based on the JOSS-published methodology (Smith & Neuhaus, 2025):
 import json
 import os
 import random
+import re
 import requests
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -40,18 +41,70 @@ if LLM_PROVIDER == "gemini" or EMBEDDING_PROVIDER == "gemini":
 if EMBEDDING_PROVIDER == "local":
     from FlagEmbedding import BGEM3FlagModel
 
+if EMBEDDING_PROVIDER == "onnx":
+    from sentence_transformers import SentenceTransformer
+
 
 class EmbeddingProvider:
     """Abstract embedding provider supporting multiple backends."""
     
+    # ONNX model dimensions (common models)
+    ONNX_MODEL_DIMENSIONS = {
+        # MiniLM family (fastest, smallest)
+        "all-MiniLM-L6-v2": 384,
+        "all-MiniLM-L12-v2": 384,
+        "paraphrase-MiniLM-L6-v2": 384,
+        "multi-qa-MiniLM-L6-cos-v1": 384,
+        "msmarco-MiniLM-L6-cos-v5": 384,
+        # MPNet (best quality)
+        "all-mpnet-base-v2": 768,
+        "multi-qa-mpnet-base-cos-v1": 768,
+        # DistilBERT
+        "msmarco-distilbert-cos-v5": 768,
+        "all-distilroberta-v1": 768,
+        # BGE family (lightweight alternatives to BGE-M3)
+        "BAAI/bge-small-en-v1.5": 384,
+        "BAAI/bge-base-en-v1.5": 768,
+        # Nomic (long context 8192 tokens)
+        "nomic-ai/nomic-embed-text-v1": 768,
+        "nomic-ai/nomic-embed-text-v1.5": 768,
+    }
+    
+    # Models that require special prefix handling
+    NOMIC_MODELS = {
+        "nomic-ai/nomic-embed-text-v1",
+        "nomic-ai/nomic-embed-text-v1.5",
+    }
+    
+    DEFAULT_ONNX_MODEL = "all-MiniLM-L6-v2"
+    
     def __init__(self, provider: str = "local"):
         self.provider = provider
         self.dimension = None
+        self.is_nomic = False  # Only True for nomic ONNX models
         
         if provider == "local":
             print("🔧 Initializing BGE-M3 embedding model (local)...")
             self.model = BGEM3FlagModel('BAAI/bge-m3', use_fp16=False)
             self.dimension = 1024
+        elif provider == "onnx":
+            self.model_name = os.environ.get("ONNX_EMBEDDING_MODEL", self.DEFAULT_ONNX_MODEL)
+            self.is_nomic = self.model_name in self.NOMIC_MODELS
+            print(f"🔧 Initializing ONNX embedding model: {self.model_name} (lightweight local)...")
+            # Use sentence-transformers with ONNX backend
+            # Nomic models require trust_remote_code=True
+            if self.is_nomic:
+                self.model = SentenceTransformer(self.model_name, backend="onnx", trust_remote_code=True)
+            else:
+                self.model = SentenceTransformer(self.model_name, backend="onnx")
+            # Get dimension from known models or detect from model
+            if self.model_name in self.ONNX_MODEL_DIMENSIONS:
+                self.dimension = self.ONNX_MODEL_DIMENSIONS[self.model_name]
+            else:
+                # Detect dimension by encoding a test string
+                test_embedding = self.model.encode(["test"])
+                self.dimension = len(test_embedding[0])
+            print(f"   📐 Embedding dimension: {self.dimension}")
         elif provider == "openai":
             print("🔧 Initializing Azure OpenAI embeddings (API)...")
             self.api_key = os.environ.get("AZURE_OPENAI_KEY")
@@ -72,7 +125,7 @@ class EmbeddingProvider:
             self.model_name = os.environ.get("GEMINI_EMBEDDING_MODEL", "text-embedding-004")
             self.dimension = 768  # Gemini text-embedding-004 dimension
         else:
-            raise ValueError(f"Unknown embedding provider: {provider}. Use 'local', 'openai', or 'gemini'.")
+            raise ValueError(f"Unknown embedding provider: {provider}. Use 'local', 'onnx', 'openai', or 'gemini'.")
     
     def _fetch_bms_endpoints(self) -> dict:
         """Fetch BMS OpenAI endpoint configuration."""
@@ -107,10 +160,16 @@ class EmbeddingProvider:
             raise ValueError(f"No deployments found: {e}")
     
     def encode(self, texts: List[str]) -> List[List[float]]:
-        """Encode texts to embeddings."""
+        """Encode texts to embeddings (for documents/indexing)."""
         if self.provider == "local":
             result = self.model.encode(texts)['dense_vecs']
             return [v.tolist() if hasattr(v, 'tolist') else v for v in result]
+        elif self.provider == "onnx":
+            # Nomic models require "search_document: " prefix for documents
+            if self.is_nomic:
+                texts = [f"search_document: {t}" for t in texts]
+            result = self.model.encode(texts)
+            return [v.tolist() if hasattr(v, 'tolist') else list(v) for v in result]
         elif self.provider == "openai":
             endpoint = self._get_openai_endpoint()
             client = AzureOpenAI(
@@ -136,10 +195,16 @@ class EmbeddingProvider:
             return embeddings
     
     def encode_query(self, text: str) -> List[float]:
-        """Encode a single query text."""
+        """Encode a single query text (for search)."""
         if self.provider == "local":
             result = self.model.encode([text])['dense_vecs'][0]
             return result.tolist() if hasattr(result, 'tolist') else result
+        elif self.provider == "onnx":
+            # Nomic models require "search_query: " prefix for queries
+            if self.is_nomic:
+                text = f"search_query: {text}"
+            result = self.model.encode([text])[0]
+            return result.tolist() if hasattr(result, 'tolist') else list(result)
         elif self.provider == "openai":
             endpoint = self._get_openai_endpoint()
             client = AzureOpenAI(
@@ -340,6 +405,9 @@ class CanvasXpressGenerator:
         print("🔧 Loading schema...")
         self.schema = self._load_schema()
         
+        print("🔧 Loading rules...")
+        self.rules = self._load_rules()
+        
         print("🔧 Loading prompt template...")
         self.prompt_template = self._load_prompt_template()
         
@@ -359,7 +427,10 @@ class CanvasXpressGenerator:
         )
         
         print(f"📦 LLM Provider: {self.llm_provider_name} ({self.llm_provider.llm_model})")
-        print(f"� Embedding Provider: {self.embedding_provider_name}")
+        print(f"📊 Embedding Provider: {self.embedding_provider_name}")
+        prompt_version = os.environ.get("PROMPT_VERSION", "v2").lower()
+        rules_status = "✓ loaded" if self.rules else "✗ not found"
+        print(f"📝 Prompt Version: {prompt_version} (rules: {rules_status})")
         print("✅ CanvasXpress Generator initialized successfully!")
     
     def _load_examples(self) -> List[Dict]:
@@ -370,18 +441,44 @@ class CanvasXpressGenerator:
     
     def _load_schema(self) -> str:
         """Load CanvasXpress schema documentation."""
-        schema_file = self.data_dir / "schema.txt"
+        schema_file = self.data_dir / "schema.md"
         with open(schema_file) as f:
             return f.read()
     
+    def _load_rules(self) -> str:
+        """Load CanvasXpress rules documentation."""
+        rules_file = self.data_dir / "canvasxpress_rules.md"
+        if rules_file.exists():
+            with open(rules_file) as f:
+                return f.read()
+        return ""  # Rules are optional
+    
     def _load_prompt_template(self) -> str:
-        """Load prompt template."""
-        template_file = self.data_dir / "prompt_template.md"
+        """Load prompt template.
+        
+        Uses prompt_template_v2.md if PROMPT_VERSION=v2 (includes rules),
+        otherwise uses the original prompt_template.md.
+        """
+        prompt_version = os.environ.get("PROMPT_VERSION", "v2").lower()
+        if prompt_version == "v2":
+            template_file = self.data_dir / "prompt_template_v2.md"
+        else:
+            template_file = self.data_dir / "prompt_template.md"
+        
+        if not template_file.exists():
+            # Fall back to original if v2 doesn't exist
+            template_file = self.data_dir / "prompt_template.md"
+        
         with open(template_file) as f:
             return f.read()
     
     def _setup_vector_db(self):
-        """Set up vector database with few-shot examples."""
+        """Set up vector database with few-shot examples.
+        
+        Supports both single descriptions and multiple alternative wordings.
+        If an example has 'alt_descriptions', each wording gets its own vector
+        but all point to the same config.
+        """
         collection_name = "few_shot_examples"
         
         # Check if collection exists
@@ -397,32 +494,59 @@ class CanvasXpressGenerator:
             dimension=self.embedding_provider.dimension
         )
         
-        # Embed and insert examples
-        print(f"   🔢 Embedding {len(self.examples)} examples...")
-        data = []
+        # Build list of all descriptions (primary + alternatives)
+        # Each description will get its own vector, but share the same config
+        all_descriptions = []
+        description_metadata = []  # Track which example each description belongs to
+        
+        for example in self.examples:
+            # Primary description (always present)
+            all_descriptions.append(example['description'])
+            description_metadata.append({
+                'example': example,
+                'is_primary': True
+            })
+            
+            # Alternative descriptions (if present)
+            if 'alt_descriptions' in example:
+                for alt_desc in example['alt_descriptions']:
+                    all_descriptions.append(alt_desc)
+                    description_metadata.append({
+                        'example': example,
+                        'is_primary': False
+                    })
+        
+        num_primary = len(self.examples)
+        num_alt = len(all_descriptions) - num_primary
+        print(f"   🔢 Embedding {len(all_descriptions)} descriptions ({num_primary} primary + {num_alt} alternatives)...")
         
         # Batch embed all descriptions
-        descriptions = [ex['description'] for ex in self.examples]
-        embeddings = self.embedding_provider.encode(descriptions)
+        embeddings = self.embedding_provider.encode(all_descriptions)
         
-        for example, embedding in zip(self.examples, embeddings):
+        # Build data for insertion
+        data = []
+        for i, (desc, embedding, meta) in enumerate(zip(all_descriptions, embeddings, description_metadata)):
+            example = meta['example']
             data.append({
-                "id": example["id"],
+                "id": i,  # Sequential ID for each vector
                 "vector": embedding,
-                "description": example["description"],
+                "description": desc,
                 "config": json.dumps(example["config"]),
-                "headers": example["headers"],
-                "type": example["type"]
+                "headers": example.get("headers", ""),  # Optional, default to empty
+                "type": example.get("type", "unknown"),  # Optional, default to unknown
+                "example_id": example.get("id", i),  # Optional, default to index
+                "is_primary": meta['is_primary']
             })
         
-        # Insert in batches
+        # Insert all vectors
         self.vector_db.insert(collection_name=collection_name, data=data)
-        print(f"   ✓ Inserted {len(data)} examples into vector database")
+        print(f"   ✓ Inserted {len(data)} vectors into vector database")
     
     def get_similar_examples(
         self,
         description: str,
-        num_examples: int = 25
+        num_examples: int = 25,
+        deduplicate: bool = True
     ) -> List[Dict]:
         """
         Retrieve similar few-shot examples using semantic search.
@@ -430,6 +554,7 @@ class CanvasXpressGenerator:
         Args:
             description: Natural language description of desired visualization
             num_examples: Number of similar examples to retrieve
+            deduplicate: If True, return only unique configs (best match per example)
             
         Returns:
             List of similar example dictionaries
@@ -437,19 +562,35 @@ class CanvasXpressGenerator:
         # Embed the query using the configured embedding provider
         query_vector = self.embedding_provider.encode_query(description)
         
+        # Request more results if deduplicating (multiple wordings may match same config)
+        # Multiplier based on ALT_WORDING_COUNT: 1 primary + N alternatives
+        alt_wording_count = int(os.environ.get("ALT_WORDING_COUNT", "3"))
+        search_multiplier = alt_wording_count + 1  # e.g., 3 alts + 1 primary = 4x
+        search_limit = num_examples * search_multiplier if deduplicate else num_examples
+        
         # Search vector database
         results = self.vector_db.search(
             collection_name="few_shot_examples",
             data=[query_vector],
-            limit=num_examples,
-            output_fields=["description", "config", "headers", "type"]
+            limit=search_limit,
+            output_fields=["description", "config", "headers", "type", "example_id"]
         )
         
         # Format results
         similar_examples = []
+        seen_example_ids = set()
+        
         for hits in results:
             for hit in hits:
                 entity = hit["entity"]
+                example_id = entity.get("example_id")
+                
+                # Deduplicate: skip if we've already seen this example
+                if deduplicate and example_id is not None:
+                    if example_id in seen_example_ids:
+                        continue
+                    seen_example_ids.add(example_id)
+                
                 similar_examples.append({
                     "description": entity["description"],
                     "config": json.loads(entity["config"]),
@@ -457,6 +598,13 @@ class CanvasXpressGenerator:
                     "type": entity["type"],
                     "score": hit.get("distance", 0)
                 })
+                
+                # Stop once we have enough unique examples
+                if len(similar_examples) >= num_examples:
+                    break
+            
+            if len(similar_examples) >= num_examples:
+                break
         
         return similar_examples
     
@@ -493,14 +641,76 @@ class CanvasXpressGenerator:
         headers_text = headers or ""
         
         # Build complete prompt using template
-        prompt = self.prompt_template.format(
-            canvasxpress_config_english=description,
-            headers_column_names=headers_text,
-            schema_info=self.schema,
-            few_shot_examples=few_shot_text
-        )
+        # Support both v1 (no rules_info) and v2 (with rules_info) templates
+        try:
+            prompt = self.prompt_template.format(
+                canvasxpress_config_english=description,
+                headers_column_names=headers_text,
+                schema_info=self.schema,
+                rules_info=self.rules,
+                few_shot_examples=few_shot_text
+            )
+        except KeyError:
+            # Fall back for v1 template without rules_info placeholder
+            prompt = self.prompt_template.format(
+                canvasxpress_config_english=description,
+                headers_column_names=headers_text,
+                schema_info=self.schema,
+                few_shot_examples=few_shot_text
+            )
         
         return prompt
+    
+    def _extract_json_from_response(self, response: str) -> str:
+        """
+        Extract JSON from LLM response, handling various formats.
+        
+        Handles:
+        - Clean JSON
+        - Markdown code blocks (```json ... ```)
+        - Extra text before/after JSON
+        - Multiple JSON objects (returns first valid one)
+        
+        Args:
+            response: Raw LLM response text
+            
+        Returns:
+            Cleaned JSON string
+            
+        Raises:
+            ValueError: If no valid JSON found
+        """
+        text = response.strip()
+        
+        # Try 1: Direct JSON parse (cleanest case)
+        if text.startswith('{'):
+            # Find matching closing brace
+            brace_count = 0
+            for i, char in enumerate(text):
+                if char == '{':
+                    brace_count += 1
+                elif char == '}':
+                    brace_count -= 1
+                    if brace_count == 0:
+                        return text[:i+1]
+        
+        # Try 2: Extract from markdown code block
+        code_block_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
+        if code_block_match:
+            return code_block_match.group(1).strip()
+        
+        # Try 3: Find JSON object anywhere in text
+        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', text, re.DOTALL)
+        if json_match:
+            return json_match.group(0)
+        
+        # Try 4: More aggressive - find first { and last }
+        first_brace = text.find('{')
+        last_brace = text.rfind('}')
+        if first_brace != -1 and last_brace > first_brace:
+            return text[first_brace:last_brace+1]
+        
+        raise ValueError(f"No valid JSON found in response: {text[:200]}...")
     
     def generate(
         self,
@@ -535,13 +745,7 @@ class CanvasXpressGenerator:
             max_retries=max_retries
         )
         
-        # Parse JSON response
-        generated_text = generated_text.strip()
-        if generated_text.startswith("```"):
-            # Remove markdown code blocks
-            lines = generated_text.split("\n")
-            generated_text = "\n".join(lines[1:-1] if len(lines) > 2 else lines)
-            generated_text = generated_text.replace("```json", "").replace("```", "").strip()
-        
-        config = json.loads(generated_text)
+        # Extract and parse JSON response (handles markdown, extra text, etc.)
+        json_text = self._extract_json_from_response(generated_text)
+        config = json.loads(json_text)
         return config

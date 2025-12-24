@@ -8,6 +8,10 @@ torch>=2.0.0
 requests>=2.31.0
 python-dotenv>=1.0.0
 
+# ONNX runtime for lightweight local embeddings (EMBEDDING_PROVIDER=onnx)
+onnxruntime>=1.16.0
+optimum[onnxruntime]>=1.14.0
+
 # Google Gemini support (optional - for LLM and embeddings)
 google-generativeai>=0.8.0
 

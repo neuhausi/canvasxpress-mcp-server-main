@@ -75,7 +75,7 @@ def copy_schema():
     print("📦 Copying schema...")
     
     source_file = REFERENCE_DIR / "schema.txt"
-    dest_file = DATA_DIR / "schema.txt"
+    dest_file = DATA_DIR / "schema.md"
     
     shutil.copy(source_file, dest_file)
     
